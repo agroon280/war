@@ -31,7 +31,7 @@ int main() {
         printf("\n========== BIBLIOTECA ==========\n");
         printf("1 - CADASTRAR UM NOVO LIVRO\n");
         printf("2 - VER LIVROS CADASTRADOS\n");
-        printf("3 - SAIR DA BIBLIOTECA\n");
+        printf("0 - SAIR DA BIBLIOTECA\n");
         printf("==================================\n");
         printf("ESCOLHA UMA OPCAO: ");
         
@@ -60,7 +60,7 @@ int main() {
                     //essa funçao vai ler o fgets e trocar o \ n por \ 0 apenas.
                     //A função strcspn(biblioteca[totalivros].editora, "\n") 
                     //olha para a caixa e conta quantos passos ela dá até encontrar a letra \n.
-                    
+
                     // Pede e lê a edição
                     printf("Edicao: ");
                     scanf("%d", &biblioteca[totalivros].edicao);
@@ -74,12 +74,28 @@ int main() {
                 }
                 break;
             
+
             case 2:
-                // Esta parte será implementada futuramente
-                printf("Opcao em desenvolvimento...\n");
+                printf("LISTA DE LIVROS CADASTRADOS\n");
+                if (totalivros == 0) {
+                   printf("nao existe nenhum livro cadastrado\n");
+                }else{
+                    for( int i = 0; i < totalivros; i++) {
+                      printf("LIVRO: %d\n", i +1);//soma i com 1 para aparecer 1 em vez de 0.
+                      printf("NOME: %s\n", biblioteca[i].nome);
+                      printf("AUTOR: %s\n",biblioteca[i].autor);
+                      printf("EDITORA: %s\n", biblioteca[i].editora);
+                      
+                      printf("EDIÇAO: %d\n\n", biblioteca[i].edicao);
+                   }
+                   printf("-------------------------------------");
+                }
+
+                printf("\npressione enter para continuar");
+                getchar();
                 break;
             
-            case 3:
+            case 0:
                 printf("Saindo da biblioteca. Ate mais!\n");
                 break;
             
@@ -88,7 +104,7 @@ int main() {
                 break;
         }
 
-    } while (opcao != 3); // O loop continua até que o usuário escolha a opção 3
+    } while (opcao != 0); // O loop continua até que o usuário escolha a opção 3
 
     return 0;
 }
