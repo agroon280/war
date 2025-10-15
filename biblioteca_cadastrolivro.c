@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 // Definindo as constantes
 #define tamnh_strg 100
-#define max_livr 25
+#define max_livr 50
+
 
 // Definindo a struct livro
 struct livro {
@@ -33,7 +35,7 @@ int main() {
         printf("2 - VER LIVROS CADASTRADOS\n");
         printf("0 - SAIR DA BIBLIOTECA\n");
         printf("==================================\n");
-        printf("ESCOLHA UMA OPCAO: ");
+        printf("ESCOLHA UMA OPCAO ");
         
         // Lendo a opção do usuário
         scanf("%d", &opcao);
@@ -41,28 +43,29 @@ int main() {
 
         switch (opcao) {
             case 1:
-                printf("\n--- CADASTRO DE LIVRO ---\n");
+                printf("\n--- CADASTRAR LIVRO ---\n");
+
                 if (totalivros < max_livr) {
               
-                    printf("Nome do livro: ");
+                    printf("NOME DO LIVRO: ");
                     fgets(biblioteca[totalivros].nome, tamnh_strg, stdin);
                     biblioteca[totalivros].nome[strcspn(biblioteca[totalivros].nome, "\n")] = 0;
                     
                     // Pede e lê o nome do autor
-                    printf("Autor: ");
+                    printf("AUTOR: ");
                     fgets(biblioteca[totalivros].autor, tamnh_strg, stdin);
                     biblioteca[totalivros].autor[strcspn(biblioteca[totalivros].autor, "\n")] = 0;
                  
-                    // Pede e lê a editora
-                    printf("Editora: ");
+                    // Pede e lê a editora, STDIN E A ENTRADA PELO TECLADO
+                    printf("EDITORA: ");
                     fgets(biblioteca[totalivros].editora, tamnh_strg, stdin);//lê o que digita no teclado
                     biblioteca[totalivros].editora[strcspn(biblioteca[totalivros].editora, "\n")] = 0;
-                    //essa funçao vai ler o fgets e trocar o \ n por \ 0 apenas.
+                    //essa funçao vai ler o fgets e trocar o \n por \0 apenas.
                     //A função strcspn(biblioteca[totalivros].editora, "\n") 
                     //olha para a caixa e conta quantos passos ela dá até encontrar a letra \n.
 
                     // Pede e lê a edição
-                    printf("Edicao: ");
+                    printf("EDICAO: ");
                     scanf("%d", &biblioteca[totalivros].edicao);
                     limparbuff();
 
@@ -70,7 +73,7 @@ int main() {
                     totalivros++;
                     printf("Livro cadastrado com sucesso!\n");
                 } else {
-                    printf("Nao ha mais espaco para cadastrar novos livros.\n");
+                    printf(" Nao ha espaco para cadastrar novos livros.\n ");
                 }
                 break;
             
@@ -85,7 +88,7 @@ int main() {
                       printf("NOME: %s\n", biblioteca[i].nome);
                       printf("AUTOR: %s\n",biblioteca[i].autor);
                       printf("EDITORA: %s\n", biblioteca[i].editora);
-                      
+
                       printf("EDIÇAO: %d\n\n", biblioteca[i].edicao);
                    }
                    printf("-------------------------------------");
@@ -104,7 +107,6 @@ int main() {
                 break;
         }
 
-    } while (opcao != 0); // O loop continua até que o usuário escolha a opção 3
-
+    } while (opcao != 0); // O loop continua até que o usuário escolha a opção 0 SAIR
     return 0;
 }
