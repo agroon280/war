@@ -6,7 +6,7 @@
 // Definindo as constantes
 #define tamnh_strg 100
 #define max_livr 50
-
+#define max_emprestimo 
 
 // Definindo a struct livro
 struct livro {
