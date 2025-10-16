@@ -17,7 +17,7 @@ void limparBuffer() {
 }
 
 // CADASTRO DE TERRITÓRIOS
-// Aloca dinamicamente e preenche os dados iniciais dos territórios
+// Aloca dinamicamente e preenche os dados iniciais
 Territorio* cadastrarTerritorios(int numTerritorios) {
     Territorio* mapa = (Territorio*)calloc(numTerritorios, sizeof(Territorio));
     if (mapa == NULL) {
